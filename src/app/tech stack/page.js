@@ -15,7 +15,7 @@ const Skills = () => {
     return(
         <div id="techstack" className="h-fit">
             <section className="bg-zinc-900 text-gray-100 h-fit">
-                <div className="container mx-auto p-4  my-6 space-y-2 text-center">
+                <div className="container p-4 space-y-2 text-center">
                     <h2 className="text-5xl font-bold">Tech Stack</h2>
                     <p className="text-gray-400">To make me a superhero</p>
                 </div>
