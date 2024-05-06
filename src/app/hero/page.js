@@ -1,17 +1,17 @@
-
+"use client"
 import { FaInstagram } from "react-icons/fa6";
 import { RiTwitterXFill } from "react-icons/ri";
 import { FaGithub } from "react-icons/fa";
 import { MdOutlineMailOutline } from "react-icons/md";
 import { IoCallSharp } from "react-icons/io5";
 
-export const Hero = () => {
+const Hero = () => {
     return(
         <div id="home" className="flex sm:flex-row flex-col h-screen overflow-x-hidden">
-            <div className="left sm:h-full h-[55vh] sm:w-[50vw] w-full flex flex-col sm:justify-center justify-end flex-shrink-0">
+            <div className="left sm:h-full h-[50vh] sm:w-[50vw] w-full flex flex-col sm:justify-center justify-end flex-shrink-0">
 
                 <img className="h-24 w-24 sm:m-10 m-5 mb-5 rounded-full object-cover" src={"https://i.ibb.co/jTB0hQ5/prof.jpg"} alt="" />
-                <p className="sm:text-6xl mx-3 text-5xl mb-6 sm:m-10 mt-0">Hello! I'm Sachin Parihar</p>
+                <p className="sm:text-6xl mx-3 text-5xl sm:m-10 mt-0">Hello! I'm Sachin Parihar</p>
             </div>
             <div className="middle h-full flex flex-col gap-3 justify-center">
                 <p className="sm:text-4xl sam:m-0 text-3xl mx-3">A Fullstack Developer based in Pune,India.</p>
@@ -32,3 +32,4 @@ export const Hero = () => {
         </div>
     )
 }
+export default Hero
