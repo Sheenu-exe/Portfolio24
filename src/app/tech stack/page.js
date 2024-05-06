@@ -11,7 +11,7 @@ import { RiSupabaseFill } from "react-icons/ri";
 import { FaPython } from "react-icons/fa";
 import { SiTypescript } from "react-icons/si";
 
-export const Skills = () => {
+const Skills = () => {
     return(
         <div id="techstack" className="h-fit">
             <section className="bg-zinc-900 text-gray-100 h-fit">
@@ -48,3 +48,5 @@ const TechStackItem = ({ icon, title, description, skillLevel }) => {
         </div>
     );
 }
+
+export default Skills
