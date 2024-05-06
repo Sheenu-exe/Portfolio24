@@ -133,23 +133,48 @@ const Accordion = ({ title, index, currentIndex, onClick, children }) => {
 };
 
 const ExperienceForm = () => {
-   return(
-    <form className='space-y-4 mt-5 flex flex-col gap-y-5 w-[90vw]'>
- <div>
- <label htmlFor="jobTitle" className="block text-gray-700 mb-2.5">Title:</label>
-                                <input type="text" id="jobTitle" placeholder='Job Title Here' className="w-full input rounded-none focus:border-x-0 focus:border-t-0 focus:border-b-[1px] focus:border-b-zinc-900 border-b-[1px] focus:outline-none focus:ring-0 border-b-zinc-400" required />
- </div>
- <div>
- <label htmlFor="jobDuration" className="block text-gray-700 mb-2.5">Job Duration:</label>
-                                <input type="text" id="jobDuration" placeholder='Job Duration Here' className="w-full input rounded-none focus:border-x-0 focus:border-t-0 focus:border-b-[1px] focus:border-b-zinc-900 border-b-[1px] focus:outline-none focus:ring-0 border-b-zinc-400" required />
- </div>
- <div>
- <label htmlFor="CompanyTitle" className="block text-gray-700 mb-2.5">Company Title:</label>
-                                <input type="text" id="CompanyTitle" placeholder='Company Title Here' className="w-full input rounded-none focus:border-x-0 focus:border-t-0 focus:border-b-[1px] focus:border-b-zinc-900 border-b-[1px] focus:outline-none focus:ring-0 border-b-zinc-400" required />
- </div>
-                                <button>Submit</button>
-</form>
-   )
+    const [jobTitle, setJobTitle] = useState('');
+    const [jobDuration, setJobDuration] = useState('');
+    const [companyTitle, setCompanyTitle] = useState('');
+
+    const handleexpSubmit = async (e) => {
+        e.preventDefault();
+
+        try {
+            const experienceRef = collection(db, 'experiences');
+
+            await addDoc(experienceRef, {
+                jobTitle: jobTitle,
+                jobDuration: jobDuration,
+                companyTitle: companyTitle
+            });
+
+            // Reset form fields after submission
+            setJobTitle('');
+            setJobDuration('');
+            setCompanyTitle('');
+        } catch (error) {
+            console.error('Error adding experience: ', error);
+        }
+    };
+
+    return (
+        <form className='space-y-4 mt-5 flex flex-col gap-y-5 w-[90vw]' onSubmit={handleexpSubmit}>
+            <div>
+                <label htmlFor="jobTitle" className="block text-gray-700 mb-2.5">Title:</label>
+                <input type="text" id="jobTitle" placeholder='Job Title Here' value={jobTitle} onChange={(e) => setJobTitle(e.target.value)} className="w-full input rounded-none focus:border-x-0 focus:border-t-0 focus:border-b-[1px] focus:border-b-zinc-900 border-b-[1px] focus:outline-none focus:ring-0 border-b-zinc-400" required />
+            </div>
+            <div>
+                <label htmlFor="jobDuration" className="block text-gray-700 mb-2.5">Job Duration:</label>
+                <input type="text" id="jobDuration" placeholder='Job Duration Here' value={jobDuration} onChange={(e) => setJobDuration(e.target.value)} className="w-full input rounded-none focus:border-x-0 focus:border-t-0 focus:border-b-[1px] focus:border-b-zinc-900 border-b-[1px] focus:outline-none focus:ring-0 border-b-zinc-400" required />
+            </div>
+            <div>
+                <label htmlFor="companyTitle" className="block text-gray-700 mb-2.5">Company Title:</label>
+                <input type="text" id="companyTitle" placeholder='Company Title Here' value={companyTitle} onChange={(e) => setCompanyTitle(e.target.value)} className="w-full input rounded-none focus:border-x-0 focus:border-t-0 focus:border-b-[1px] focus:border-b-zinc-900 border-b-[1px] focus:outline-none focus:ring-0 border-b-zinc-400" required />
+            </div>
+            <button type="submit" className="w-full bg-zinc-900 text-white rounded-md py-2 hover:bg-zinc-700 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2">Submit</button>
+        </form>
+    );
 };
 
 const TechStackForm = () => {
