@@ -1,27 +1,10 @@
 "use client"
-import React, { useState, useEffect } from 'react';
-
+import { PiFilePdfFill } from "react-icons/pi";
 
 export const Header = () => {
-  const [time, setTime] = useState('');
+ 
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      const date = new Date();
-      let hours = date.getHours();
-      const minutes = date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes();
-      const seconds = Math.round(date.getSeconds());
-      const amPm = hours >= 12 ? 'PM' : 'AM';
 
-      
-      hours = hours % 12;
-      hours = hours ? hours : 12;
-
-      setTime(`${hours}:${minutes}:${seconds} ${amPm}`);
-    }, 1000);
-
-    return () => clearInterval(interval);
-  }, []);
 
   return (
     <div className="items-center navbar fixed top-0 left-0 z-50 h-[10vh] backdrop-blur-sm gap-2 flex justify-between">
@@ -32,14 +15,13 @@ export const Header = () => {
         <ul className="sm:flex hidden bg-black rounded-2xl">
           <li className="px-2 py-1 rounded-2xl hover:ease-in-out cursor-pointer text-white  active:bg-slate-100 active:text-black focus:text-black  focus:bg-slate-100"><a href="#home">Home</a></li>
           <li className="px-2 py-1 rounded-2xl hover:ease-in-out cursor-pointer text-white active:bg-slate-100 active:text-black focus:text-black  focus:bg-slate-100"><a href="#techstack">Tech Stack</a></li>
-          <li className="px-2 py-1 rounded-2xl hover:ease-in-out cursor-pointer text-white active:bg-slate-100  active:text-black focus:text-black focus:bg-slate-100">Projects</li>
-          <li className="px-2 py-1 rounded-2xl hover:ease-in-out cursor-pointer text-white active:bg-slate-100  active:text-black focus:text-black focus:bg-slate-100">About</li>
+          <li className="px-2 py-1 rounded-2xl hover:ease-in-out cursor-pointer text-white active:bg-slate-100  active:text-black focus:text-black focus:bg-slate-100"><a href="#projects">Projects</a></li>
+          <li className="px-2 py-1 rounded-2xl hover:ease-in-out cursor-pointer text-white active:bg-slate-100  active:text-black focus:text-black focus:bg-slate-100"><a href="#about">About</a></li>
         </ul>
       </div>
       
-      <div className="flex flex-col bg-black mr-2 px-2 py-1 rounded-lg tracking-tight">
-        <p className="text-sm text-white">Pune, India</p>
-        <p className="text-lg text-white font-bold">{time}</p>
+      <div className="flex flex-col bg-zinc-900 mr-2 h-[90%] w-auto px-2 py-1 rounded-lg tracking-tight justify-center items-center">
+        <a href="https://drive.google.com/file/d/1FN19ClpiZgEp0X729lsrLv9X6Ih1Ry-s/view?usp=drive_link"><PiFilePdfFill className="text-white text-3xl"/></a>
       </div>
     </div>
   );
