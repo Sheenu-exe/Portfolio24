@@ -8,30 +8,39 @@ const Experience = () => {
     const [experiences, setExperiences] = useState([]);
 
     useEffect(() => {
-		const fetchExperiences = async () => {
-			try {
-				const experiencesRef = collection(db, 'experiences');
-				const querySnapshot = await getDocs(experiencesRef);
-				const fetchedExperiences = [];
-				querySnapshot.forEach((doc) => {
-					fetchedExperiences.push({ id: doc.id, ...doc.data() });
-				});
-		
-				// Sort experiences by createdAt timestamp in ascending order
-				fetchedExperiences.sort((a, b) => a.createdAt - b.createdAt);
-		
-				setExperiences(fetchedExperiences);
-			} catch (error) {
-				console.error('Error fetching experiences: ', error);
-			}
-		};
-		
-		
-		
-
+        const fetchExperiences = async () => {
+            try {
+                const experiencesRef = collection(db, 'experiences');
+                const querySnapshot = await getDocs(experiencesRef);
+                const fetchedExperiences = [];
+                querySnapshot.forEach((doc) => {
+                    fetchedExperiences.push({ id: doc.id, ...doc.data() });
+                });
+    
+               
+                fetchedExperiences.forEach((experience) => {
+                    if (typeof experience.index !== 'number' || isNaN(experience.index)) {
+                        throw new Error('Invalid "index" property in experience data.');
+                    }
+                });
+    
+               
+                fetchedExperiences.sort((a, b) => a.index - b.index);
+    
+                
+                const slicedExperiences = fetchedExperiences.slice(0, 4);
+    
+                setExperiences(slicedExperiences);
+            } catch (error) {
+                console.error('Error fetching or sorting experiences: ', error);
+            }
+        };
+    
         fetchExperiences();
     }, []);
-
+    
+    
+    
     return (
         <div id="experience" className="h-fit sm:mt-0 mt-5">
             <section className="bg-gray-100 text-gray-800">
