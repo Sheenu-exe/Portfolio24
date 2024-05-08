@@ -17,20 +17,11 @@ const Experience = () => {
                     fetchedExperiences.push({ id: doc.id, ...doc.data() });
                 });
     
-               
-                fetchedExperiences.forEach((experience) => {
-                    if (typeof experience.index !== 'number' || isNaN(experience.index)) {
-                        throw new Error('Invalid "index" property in experience data.');
-                    }
-                });
+                // Sort experiences by the "index" property from highest to lowest
+                fetchedExperiences.sort((a, b) => b.index - a.index);
     
-               
-                fetchedExperiences.sort((a, b) => a.index - b.index);
-    
-                
-                const slicedExperiences = fetchedExperiences.slice(0, 4);
-    
-                setExperiences(slicedExperiences);
+                // Set the sorted experiences to state
+                setExperiences(fetchedExperiences);
             } catch (error) {
                 console.error('Error fetching or sorting experiences: ', error);
             }
@@ -38,6 +29,7 @@ const Experience = () => {
     
         fetchExperiences();
     }, []);
+    
     
     
     
