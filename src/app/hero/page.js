@@ -15,7 +15,7 @@ const Hero = () => {
             </div>
             <div className="middle h-full flex flex-col gap-3 justify-center">
                 <p className="sm:text-4xl sam:m-0 text-3xl mx-3">A Fullstack Developer based in Pune,India.</p>
-                <p className="text-gray-400 sm:m-0 mx-3">Designing User-Centric Experiences with Precision and Creativity</p>
+                <p className="text-gray-400 mx-3">Designing User-Centric Experiences with Precision and Creativity</p>
                 <div className="flex my-4 gap-x-3 mx-3"><a className=" bg-zinc-900 px-2 py-2 text-white rounded-lg" href="tel:+918668369314">Contact Me</a>
                 <a className="  px-2 py-2  text-black bg-white border rounded-lg" href="#projects">See My Work</a>
                 </div>
