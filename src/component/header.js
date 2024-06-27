@@ -12,11 +12,11 @@ export const Header = () => {
         <a className="text-xl flex items-center font-bold mx-2 h-10 w-auto">
           <img className="h-10 w-auto" src={"https://i.ibb.co/KbjCwGW/original-36051dd8be8d73ec9caea4721bb8d807-removebg-preview.png"} alt="Logo"/>
         </a>
-        <ul className="sm:flex hidden bg-black rounded-2xl">
-          <li className="px-2 py-1 rounded-2xl hover:ease-in-out cursor-pointer text-white  active:bg-slate-100 active:text-black focus:text-black  focus:bg-slate-100"><a href="#home">Home</a></li>
-          <li className="px-2 py-1 rounded-2xl hover:ease-in-out cursor-pointer text-white active:bg-slate-100 active:text-black focus:text-black  focus:bg-slate-100"><a href="#techstack">Tech Stack</a></li>
-          <li className="px-2 py-1 rounded-2xl hover:ease-in-out cursor-pointer text-white active:bg-slate-100  active:text-black focus:text-black focus:bg-slate-100"><a href="#projects">Projects</a></li>
-          <li className="px-2 py-1 rounded-2xl hover:ease-in-out cursor-pointer text-white active:bg-slate-100  active:text-black focus:text-black focus:bg-slate-100"><a href="#about">About</a></li>
+        <ul className="sm:flex hidden px-3 bg-black/70 rounded-xl">
+          <li className="px-2 py-1 rounded-xl hover:ease-in-out cursor-pointer text-white  active:bg-slate-100/50 active:text-black focus:text-white  focus:bg-slate-100"><a href="#home">Home</a></li>
+          <li className="px-2 py-1 rounded-xl hover:ease-in-out cursor-pointer text-white active:bg-slate-100/50 active:text-black focus:text-white  focus:bg-slate-100"><a href="#techstack">Tech Stack</a></li>
+          <li className="px-2 py-1 rounded-xl hover:ease-in-out cursor-pointer text-white active:bg-slate-100/50 active:text-black focus:text-white focus:bg-slate-100"><a href="#projects">Projects</a></li>
+          <li className="px-2 py-1 rounded-xl hover:ease-in-out cursor-pointer text-white active:bg-slate-100/50 active:text-black focus:text-white focus:bg-slate-100"><a href="#about">About</a></li>
         </ul>
       </div>
       
