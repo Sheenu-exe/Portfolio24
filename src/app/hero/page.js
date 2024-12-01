@@ -11,7 +11,7 @@ const Hero = () => {
             <div className="left h-fit  sm:w-[50vw] w-full flex flex-col justify-center items-center flex-shrink-0">
 
                 <img className="h-24 w-24 sm:m-10 m-5 sm:mb-5 mb-5 rounded-full object-cover" src={"https://i.ibb.co/jTB0hQ5/prof.jpg"} alt="" />
-                <p className="sm:text-6xl  mx-3 sm:mx-0 text-5xl  text-center my-2">Hello! I'm Sachin</p>
+                <p className="sm:text-6xl  mx-3 sm:mx-0 text-5xl font-semibold  text-center my-2">Hello! I'm Sachin</p>
             </div>
             <div className="middle h-fit flex text-center flex-col gap-2 items-center justify-center">
                 <p className="sm:text-3xl sam:m-0  text-3xl mx-3">A Fullstack Developer based in Pune,India.</p>
